@@ -341,13 +341,17 @@ int main(int argc, char **argv)
 				trim(line);
 			if(*(line+(strlen(line)-1))=='\n')
 				*(line+(strlen(line)-1))=0;
-				
-			if(root==NULL){
-				root=insert(root,line,strlen(line));
-				args->ctx->root=root;
-			}
-			else
-				insert(root,line,strlen(line));
+		
+if(root ==NULL)	{
+	
+		root=insertItr(root,line,strlen(line));
+		args->ctx->root=root;
+}
+else
+	insertItr(root,line,strlen(line));
+			
+			//else
+				//insert(root,line,strlen(line));
 	
 			
 		}while(rs!=NULL);

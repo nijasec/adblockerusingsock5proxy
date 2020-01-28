@@ -4,7 +4,7 @@ struct node
 	int len; 
 	char data[1024];
 	struct node *left, *right; 
-}; 
+}Node; 
 
 // A utility function to create a new BST node 
 struct node *newNode(char *item,int len) ;
@@ -17,3 +17,4 @@ void print2D(struct Node *root) ;
 struct node* insert(struct node* node, char *data,int len);
 int iterativeSearch(struct node* root, char *data) ;
 void deleteTree(struct node* node)  ;
+struct node* insertItr(struct node* root, char *data,int len);

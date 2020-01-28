@@ -129,6 +129,58 @@ void print2Dt(struct node *root)
    // Pass initial space count as 0 
    print2DUtil(root, 0); 
 } 
+//iterative insert
+
+struct node* insertItr(struct node *root, char *data,int len)
+{
+	 // Create a new Node containing 
+    // the new element 
+    struct node* new_node = newNode(data,len); 
+  
+    // Pointer to start traversing from root and 
+    // traverses downward path to search 
+    // where the new node to be inserted 
+    struct node* x = root; 
+  
+    // Pointer y maintains the trailing 
+    // pointer of x 
+  struct  node* y = NULL; 
+  
+    while (x != NULL) { 
+        y = x; 
+        if (strcmp(data,x->data)<0){ 
+            x = x->left; 
+			//printf("\ngoingtoleft");
+		}
+        else if(strcmp(data,x->data)>0)
+		{
+            x = x->right; 
+		//	printf("goingtoright");
+		}
+		else
+			break;
+		
+    } 
+  //printf("loop finished");
+    // If the root is NULL i.e the tree is empty 
+    // The new node is the root node 
+    if (y == NULL) 
+        y = new_node; 
+  
+    // If the new key is less then the leaf node key 
+    // Assign the new node to be its left child 
+    else if (strcmp(data,y->data)<0) 
+        y->left = new_node; 
+  
+    // else assign the new node its right child 
+    else if(strcmp(data,y->data)>0)
+        y->right = new_node; 
+  
+    // Returns the pointer where the 
+    // new node is inserted 
+    return y; 
+	
+}
 
 /* A utility function to insert a new node with given key in BST */
 struct node* insert(struct node* node, char *data,int len) 

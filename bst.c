@@ -5,7 +5,18 @@
 #define COUNT 5
 #include "bst.h"
 
-
+void deleteTree(struct node* node)  
+{  
+    if (node == NULL) return;  
+  
+    /* first delete both subtrees */
+    deleteTree(node->left);  
+    deleteTree(node->right);  
+      
+    /* then delete the node */
+    printf("\n Deleting node: %s",node->data);  
+    free(node);  
+}  
 // A utility function to create a new BST node 
 struct node *newNode(char *item,int len) 
 { 

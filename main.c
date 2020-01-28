@@ -198,6 +198,8 @@ struct session	*s = args->ctx->session;
 				
 				
 			}
+			//delete BST
+			deleteTree(args->ctx->root);
 			
 }
 

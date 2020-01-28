@@ -16,3 +16,4 @@ void print2DUtil(struct node *root, int space);
 void print2D(struct Node *root) ;
 struct node* insert(struct node* node, char *data,int len);
 int iterativeSearch(struct node* root, char *data) ;
+void deleteTree(struct node* node)  ;
